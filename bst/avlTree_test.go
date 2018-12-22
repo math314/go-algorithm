@@ -1,5 +1,4 @@
-package main
-
+package bst
 
 import (
 	"math/rand"
