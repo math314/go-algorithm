@@ -7,10 +7,10 @@ import (
 )
 
 type treapNode struct {
-	data ValType
+	data                ValType
 	parent, left, right *treapNode
-	treeSize int32
-	prob int32
+	treeSize            int32
+	prob                int32
 }
 
 type Treap struct {
@@ -63,8 +63,6 @@ func treapRotateLeft(node *treapNode) *treapNode {
 
 	return newRoot
 }
-
-
 
 func treapNodeInsert(node *treapNode, val ValType) (*treapNode, bool) {
 	if node == nil {
@@ -132,10 +130,10 @@ func treapDebugPrint(node *treapNode, dep int) {
 	if node == nil {
 		return
 	}
-	treapDebugPrint(node.left, dep+ 1)
+	treapDebugPrint(node.left, dep+1)
 	a, _ := node.data.(*ComparableInt)
 	fmt.Printf("%s%#v (prob = %d)\n", strings.Repeat(" ", dep), *a, node.prob)
-	treapDebugPrint(node.right, dep + 1)
+	treapDebugPrint(node.right, dep+1)
 }
 
 func treapWalkForToList(node *treapNode, ret *[]ValType) {

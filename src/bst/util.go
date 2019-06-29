@@ -1,6 +1,7 @@
 package bst
 
 type CompareResult int
+
 const (
 	LESS CompareResult = iota - 1
 	EQUAL

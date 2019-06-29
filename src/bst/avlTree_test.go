@@ -9,7 +9,7 @@ import (
 func TestAvlTree_Insert(t *testing.T) {
 	testVals := make([]int, 0)
 	for i := 0; i < 10000; i++ {
-		testVals = append(testVals , rand.Int())
+		testVals = append(testVals, rand.Int())
 	}
 
 	avlTree := &AvlTree{nil, 0}
@@ -18,7 +18,7 @@ func TestAvlTree_Insert(t *testing.T) {
 		tmp := ComparableInt(testVals[i])
 		avlTree.Insert(&tmp)
 
-		if avlTree.size != i + 1 {
+		if avlTree.size != i+1 {
 			t.Fatal("size mismatch")
 		}
 
@@ -37,7 +37,7 @@ func TestAvlTree_Insert(t *testing.T) {
 func TestAvlTree_Delete(t *testing.T) {
 	testVals := make([]int, 0)
 	for i := 0; i < 10000; i++ {
-		testVals = append(testVals , rand.Int())
+		testVals = append(testVals, rand.Int())
 	}
 
 	avlTree := &AvlTree{nil, 0}
@@ -55,7 +55,7 @@ func TestAvlTree_Delete(t *testing.T) {
 		tmp := ComparableInt(testVals[i])
 		avlTree.Delete(&tmp)
 
-		if avlTree.size != len(testVals) - i - 1 {
+		if avlTree.size != len(testVals)-i-1 {
 			t.Fatal("size mismatch")
 		}
 
@@ -69,5 +69,4 @@ func TestAvlTree_Delete(t *testing.T) {
 			}
 		}
 	}
-
 }

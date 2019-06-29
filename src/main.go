@@ -1,7 +1,7 @@
 package main
 
 import (
-	"algorithms/bst"
+	"bst"
 	"fmt"
 )
 

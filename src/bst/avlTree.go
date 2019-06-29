@@ -6,9 +6,9 @@ import (
 )
 
 type avlNode struct {
-	data ValType
+	data                ValType
 	parent, left, right *avlNode
-	height int
+	height              int
 }
 
 type AvlTree struct {
@@ -16,7 +16,7 @@ type AvlTree struct {
 	size int
 }
 
-func getHeight(node*avlNode) int {
+func getHeight(node *avlNode) int {
 	if node == nil {
 		return 0
 	}
@@ -38,7 +38,7 @@ func recalcHeight(node *avlNode) {
 	node.height = 1 + Max(getHeight(node.left), getHeight(node.right))
 }
 
-func rotateRight(node*avlNode) *avlNode {
+func rotateRight(node *avlNode) *avlNode {
 	newRoot := node.left
 	oldRoot := node
 
@@ -56,7 +56,7 @@ func rotateRight(node*avlNode) *avlNode {
 	return newRoot
 }
 
-func rotateLeft(node*avlNode) *avlNode {
+func rotateLeft(node *avlNode) *avlNode {
 	newRoot := node.right
 	oldRoot := node
 
@@ -169,17 +169,17 @@ func delete(node *avlNode, val ValType) (*avlNode, bool) {
 	recalcHeight(node)
 	balance := getBalance(node)
 
-	if(balance > 1) {
+	if balance > 1 {
 		childBalance := getBalance(node.left)
-		if (childBalance >= 0) {
+		if childBalance >= 0 {
 			return rotateRight(node), true
 		} else {
 			node.left = rotateLeft(node.left)
 			return rotateRight(node), true
 		}
-	} else if (balance < -1) {
+	} else if balance < -1 {
 		childBalance := getBalance(node.right)
-		if (childBalance <= 0) {
+		if childBalance <= 0 {
 			return rotateLeft(node), true
 		} else {
 			node.right = rotateRight(node.right)
